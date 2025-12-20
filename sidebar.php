@@ -6,9 +6,10 @@
        x-transition:leave="transition ease-in duration-300"
        x-transition:leave-start="translate-x-0"
        x-transition:leave-end="-translate-x-full"
-       @click.away="isSidebarOpen = false" 
+       @click.away="if(window.innerWidth < 1024) isSidebarOpen = false" 
        :class="{'!translate-x-0': isSidebarOpen}"> 
-       <div class="h-20 flex items-center px-8 border-b border-gray-100">
+       
+    <div class="h-20 flex items-center px-8 border-b border-gray-100">
         <div class="flex items-center gap-3 text-<?= $conf['color'] ?>-600">
             <i class="fa-solid fa-notes-medical text-3xl"></i>
             <div>
@@ -28,12 +29,12 @@
         <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 mt-2 px-4">Menu Utama</p>
         
         <?php if ($is_admin): ?>
-            <a href="dashboard.php" @click="isSidebarOpen = false" class="<?= $current_page == 'dashboard.php' ? 'bg-'.$conf['color'].'-50 text-'.$conf['color'].'-600 font-bold' : 'text-gray-600 hover:bg-gray-50' ?> flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-sm">
+            <a href="dashboard.php" @click="if(window.innerWidth < 1024) isSidebarOpen = false" class="<?= $current_page == 'dashboard.php' ? 'bg-'.$conf['color'].'-50 text-'.$conf['color'].'-600 font-bold' : 'text-gray-600 hover:bg-gray-50' ?> flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-sm">
                 <i class="fa-solid fa-chart-line w-5"></i> Dashboard
             </a>
         <?php endif; ?>
 
-        <a href="transaksi.php" @click="isSidebarOpen = false" class="<?= $current_page == 'transaksi.php' ? 'bg-'.$conf['color'].'-50 text-'.$conf['color'].'-600 font-bold' : 'text-gray-600 hover:bg-gray-50' ?> flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-sm">
+        <a href="transaksi.php" @click="if(window.innerWidth < 1024) isSidebarOpen = false" class="<?= $current_page == 'transaksi.php' ? 'bg-'.$conf['color'].'-50 text-'.$conf['color'].'-600 font-bold' : 'text-gray-600 hover:bg-gray-50' ?> flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-sm">
             <i class="fa-solid fa-cash-register w-5"></i> Billing & Pembayaran
         </a>
 
@@ -41,28 +42,28 @@
         
             <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 mt-6 px-4">Kelola Data</p>
 
-            <a href="data_pasien.php" @click="isSidebarOpen = false" class="<?= $current_page == 'data_pasien.php' ? 'bg-'.$conf['color'].'-50 text-'.$conf['color'].'-600 font-bold' : 'text-gray-600 hover:bg-gray-50' ?> flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-sm">
+            <a href="data_pasien.php" @click="if(window.innerWidth < 1024) isSidebarOpen = false" class="<?= $current_page == 'data_pasien.php' ? 'bg-'.$conf['color'].'-50 text-'.$conf['color'].'-600 font-bold' : 'text-gray-600 hover:bg-gray-50' ?> flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-sm">
                 <i class="fa-solid fa-user-injured w-5"></i> Data Pasien
             </a>
             
-            <a href="data_layanan.php" @click="isSidebarOpen = false" class="<?= $current_page == 'data_layanan.php' ? 'bg-'.$conf['color'].'-50 text-'.$conf['color'].'-600 font-bold' : 'text-gray-600 hover:bg-gray-50' ?> flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-sm">
+            <a href="data_layanan.php" @click="if(window.innerWidth < 1024) isSidebarOpen = false" class="<?= $current_page == 'data_layanan.php' ? 'bg-'.$conf['color'].'-50 text-'.$conf['color'].'-600 font-bold' : 'text-gray-600 hover:bg-gray-50' ?> flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-sm">
                 <i class="fa-solid fa-syringe w-5"></i> Layanan & Obat
             </a>
             
             <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 mt-6 px-4">Laporan & Riwayat</p>
             
-            <a href="data_transaksi.php" @click="isSidebarOpen = false" class="<?= $current_page == 'data_transaksi.php' ? 'bg-'.$conf['color'].'-50 text-'.$conf['color'].'-600 font-bold' : 'text-gray-600 hover:bg-gray-50' ?> flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-sm">
+            <a href="data_transaksi.php" @click="if(window.innerWidth < 1024) isSidebarOpen = false" class="<?= $current_page == 'data_transaksi.php' ? 'bg-'.$conf['color'].'-50 text-'.$conf['color'].'-600 font-bold' : 'text-gray-600 hover:bg-gray-50' ?> flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-sm">
                 <i class="fa-solid fa-file-invoice w-5"></i> Data Transaksi
             </a>
 
-            <a href="cetak.php" @click="isSidebarOpen = false" class="<?= $current_page == 'cetak.php' ? 'bg-'.$conf['color'].'-50 text-'.$conf['color'].'-600 font-bold' : 'text-gray-600 hover:bg-gray-50' ?> flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-sm">
+            <a href="cetak.php" @click="if(window.innerWidth < 1024) isSidebarOpen = false" class="<?= $current_page == 'cetak.php' ? 'bg-'.$conf['color'].'-50 text-'.$conf['color'].'-600 font-bold' : 'text-gray-600 hover:bg-gray-50' ?> flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-sm">
                 <i class="fa-solid fa-print w-5"></i> Cetak Laporan
             </a>
 
         <?php endif; ?>
         <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 mt-6 px-4">Pengaturan</p>
         
-        <a href="profil.php" @click="isSidebarOpen = false" class="<?= $current_page == 'profil.php' ? 'bg-'.$conf['color'].'-50 text-'.$conf['color'].'-600 font-bold' : 'text-gray-600 hover:bg-gray-50' ?> flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-sm">
+        <a href="profil.php" @click="if(window.innerWidth < 1024) isSidebarOpen = false" class="<?= $current_page == 'profil.php' ? 'bg-'.$conf['color'].'-50 text-'.$conf['color'].'-600 font-bold' : 'text-gray-600 hover:bg-gray-50' ?> flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-sm">
             <i class="fa-solid fa-user-gear w-5"></i> Profil & Password
         </a>
 
