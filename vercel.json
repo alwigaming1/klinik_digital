@@ -3,7 +3,7 @@
   "builds": [
     {
       "src": "*.php",
-      "use": "vercel-php@0.6.0"
+      "use": "vercel-php@0.7.1"
     },
     {
       "src": "assets/**",
@@ -12,8 +12,8 @@
   ],
   "routes": [
     {
-      "src": "/(css|js|img)/(.*)",
-      "dest": "/public/$1/$2"
+      "src": "/(css|js|img|assets)/(.*)",
+      "dest": "/assets/$1/$2"
     },
     {
       "src": "/(.*)",
