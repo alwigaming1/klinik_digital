@@ -1,18 +1,32 @@
 <?php
-// Sertakan config.php untuk memulai session
+// --- ROUTER VERCEL ---
+
+// Ambil URL yang diminta browser
+$request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+// ATURAN PENTING:
+// Jika file yang diminta browser (misal: login.php, style.css, logo.png) BENAR-BENAR ADA,
+// maka kembalikan "false". Ini memberi tahu Vercel untuk memproses file itu secara langsung.
+if ($request_uri !== '/' && file_exists(__DIR__ . $request_uri)) {
+    return false;
+}
+
+// --- LOGIKA HALAMAN UTAMA (ROOT /) ---
+// Kode di bawah ini hanya jalan jika user membuka halaman utama (/) saja.
+
 include 'config.php'; 
 
-// Jika pengguna sudah login, arahkan ke dashboard/transaksi sesuai role
-if (isset($_SESSION['status'])) {
-    if ($_SESSION['role'] == 'admin') {
+// Cek status login
+if (isset($_SESSION['status']) && $_SESSION['status'] == 'login') {
+    // Jika sudah login, arahkan sesuai role
+    if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
         header("Location: dashboard.php");
     } else {
         header("Location: transaksi.php");
     }
 } else {
-    // Jika pengguna belum login, arahkan ke halaman login.php
+    // Jika belum login, arahkan ke login
     header("Location: login.php");
 }
-
 exit;
 ?>
